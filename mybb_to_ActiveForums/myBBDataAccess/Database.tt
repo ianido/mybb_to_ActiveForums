@@ -1,0 +1,43 @@
+<#@ include file="PetaPoco.Core.ttinclude" #>
+<#
+	// Settings
+    ConnectionStringName = "myBB";			// Uses last connection string in config if not specified
+    Namespace = "DataAccess";
+    RepoName = "mbbDB";
+    GenerateOperations = true;
+	GeneratePocos = true;
+	GenerateCommon = true;
+	ClassPrefix = "";
+	ClassSuffix = "";
+	TrackModifiedColumns = false;
+
+    // Read schema
+	var tables = LoadTables();
+
+
+/*
+	// Tweak Schema
+	tables["tablename"].Ignore = true;							// To ignore a table
+	tables["tablename"].ClassName = "newname";					// To change the class name of a table
+	tables["tablename"]["columnname"].Ignore = true;			// To ignore a column
+	tables["tablename"]["columnname"].PropertyName="newname";	// To change the property name of a column
+	tables["tablename"]["columnname"].PropertyType="bool";		// To change the property type of a column
+*/
+
+	// Generate output
+	foreach (var t in tables){
+		if (!t.CleanName.StartsWith("mybb")) 
+		   t.Ignore = true;
+	}
+
+	tables["mybb_forumsread"].Ignore = true;
+	tables["mybb_threadsread"].Ignore = true;
+
+	
+
+	if (tables.Count>0)
+	{
+#>
+<#@ include file="PetaPoco.Generator.ttinclude" #>
+<# } #>
+
