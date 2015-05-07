@@ -1,21 +1,21 @@
 # myBB_To_ActiveForums
 
-Migrate your Forums from myBB to DNN Active Forums
+Migrate your Forums from myBB to DNN Active Forums<br/>
 
-Tested with versions:
+Tested with versions:<br/>
 
-myBB v1.4
+myBB v1.4<br/>
 http://www.mybb.com/
 
-DNN Active Forums v5.2
+DNN Active Forums v5.2<br/>
 http://activeforums.codeplex.com/
 
-*Do not migrate Polls
+*Do not currently migrate the Polls
 
 Instructions:
 
 Open app.config and set:
 
-ModuleID, 
-Folder where attachment are located for myBB
-Folder where attachment are located for Active Forums in DNN
+ModuleID<br/> 
+Folder where attachment are located for myBB<br/>
+Folder where attachment are located for Active Forums in DNN<br/>
